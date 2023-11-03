@@ -5,5 +5,5 @@ void setup (){
 
 void draw(){
   fill (255,0,0);
-  circle(width/2, height/2, 300);
+  circle(width/2, height/2, 700);
 }
