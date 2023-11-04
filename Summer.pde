@@ -2,8 +2,16 @@ class Summer {
   int xAwan1 = 102; // Koordinat X awan 1
   int xAwan2 = 702; // Koordinat X awan 2
   int xAwan3 = 1302; // Koordinat X awan 3
+  
   void display() {
-    background(#69adff); // Buat warna background biru
+    background(#69adff);
+    
+    // Buat kasih keterangan posisi mouse
+    textSize(20);
+    fill(0);
+    text("x: "+mouseX+" y: "+mouseY, 200, 200);
+  
+    // Buat 3 Awan Putih
     push(); // Sebagai batas awal objek yang akan di gerakkan atau diperbesar
     scale(0.8); // Untuk Memperbesar Ukuran Awan
     // Buat Awan Warna Putih 1
@@ -62,5 +70,84 @@ class Summer {
       xAwan3 = -400;
     }
     pop(); // Sebagai batas akhir objek yang akan di gerakkan atau diperbesar
-    }
+    
+    // BUAT GUNUNG KIRI
+    push();
+    beginShape();
+    translate(0,0,5);
+    fill(0,150,0);
+    strokeWeight(3);
+    curveVertex(0, 143);
+    curveVertex(0, 143);
+    curveVertex(50, 168);
+    curveVertex(118, 218);
+    curveVertex(214, 255);
+    curveVertex(281, 272);
+    curveVertex(334, 337);
+    curveVertex(425, 333);
+    curveVertex(545, 442);
+    curveVertex(622, 457);
+    curveVertex(709, 492);
+    curveVertex(800, 800);
+    curveVertex(-5, 800);
+    curveVertex(-5, 143);
+    curveVertex(-5, 143);
+    endShape();  
+    pop();
+    
+    // BUAT GUNUNG KANAN
+    push();
+    beginShape();
+    translate(0,0,4);
+    fill(0,150,0);
+    strokeWeight(3);
+    curveVertex(758, 487);
+    curveVertex(758, 487);
+    curveVertex(870, 308);
+    curveVertex(918, 351);
+    curveVertex(1049, 250);
+    curveVertex(1120, 312);
+    curveVertex(1204, 241);
+    curveVertex(1285, 192);
+    curveVertex(1300, 730);
+    curveVertex(671, 734);
+    curveVertex(758, 487);
+    curveVertex(758, 487);
+    endShape();  
+    pop();
+    
+    // BUAT TANAH KIRI
+    push();
+    beginShape();
+    translate(0,0,7);
+    fill(0,255,0);
+    strokeWeight(3);
+    curveVertex(0, 433);
+    curveVertex(0, 433);
+    curveVertex(502, 521);
+    curveVertex(919, 720);
+    curveVertex(920, 800);
+    curveVertex(-5, 800);
+    curveVertex(-5, 433);
+    curveVertex(-5, 433);
+    endShape();  
+    pop();
+    
+    // BUAT TANAH KANAN
+    push();
+    beginShape();
+    translate(0,0,6);
+    fill(0,255,0);
+    strokeWeight(3);
+    curveVertex(600, 557);
+    curveVertex(600, 557);
+    curveVertex(976, 414);
+    curveVertex(1440, 445);
+    curveVertex(1323, 763);
+    curveVertex(387, 827);
+    curveVertex(600, 557);
+    curveVertex(600, 557);
+    endShape();
+    pop();
+  }
 }
