@@ -4,7 +4,7 @@ class Summer {
   int xAwan3 = 1302; // Koordinat X awan 3
   
   void display() {
-    background(#69adff);
+    background(#D4F4FC);
     
     // Buat kasih keterangan posisi mouse
     textSize(20);
@@ -75,8 +75,8 @@ class Summer {
     push();
     beginShape();
     translate(0,0,5);
-    fill(0,150,0);
-    strokeWeight(3);
+    noStroke();
+    fill(#A2B6E5);
     curveVertex(0, 143);
     curveVertex(0, 143);
     curveVertex(50, 168);
@@ -99,8 +99,8 @@ class Summer {
     push();
     beginShape();
     translate(0,0,4);
-    fill(0,150,0);
-    strokeWeight(3);
+    noStroke();
+    fill(#A2B6E5);
     curveVertex(758, 487);
     curveVertex(758, 487);
     curveVertex(870, 308);
@@ -120,8 +120,8 @@ class Summer {
     push();
     beginShape();
     translate(0,0,7);
-    fill(0,255,0);
-    strokeWeight(3);
+    noStroke();
+    fill(#71D163);
     curveVertex(0, 433);
     curveVertex(0, 433);
     curveVertex(502, 521);
@@ -137,8 +137,8 @@ class Summer {
     push();
     beginShape();
     translate(0,0,6);
-    fill(0,255,0);
-    strokeWeight(3);
+    noStroke();
+    fill(#54AF47);
     curveVertex(600, 557);
     curveVertex(600, 557);
     curveVertex(976, 414);
@@ -148,6 +148,26 @@ class Summer {
     curveVertex(600, 557);
     curveVertex(600, 557);
     endShape();
+    pop();
+    
+    // BUAT POHON
+    push();
+    translate(0,0,8);
+    fill(#835C1C);
+    noStroke();
+    quad(295, 463, 315, 463, 315, 715, 295, 715);
+    quad(232, 510, 300, 565, 300, 581, 232, 520);
+    fill(#54AF47);
+    circle(300, 315, 150);
+    circle(223, 395, 150);
+    circle(410, 357, 140);
+    circle(395, 465, 140);
+    circle(335, 370, 140);
+    fill(#4eaa5f);
+    circle(250, 400, 130);
+    circle(343, 453, 130);
+    circle(160, 453, 130);
+    rect(155, 418, 200, 100);
     pop();
   }
 }

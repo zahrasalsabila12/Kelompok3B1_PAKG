@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 PFont font;
 
 Menu menu = new Menu();
@@ -18,7 +17,7 @@ void setup (){
 
 void draw(){
   Summer.display();
->>>>>>> c645bc9b67eb4dce28727330f1c6ee7791d2f8b8
+  //spring.display();
 }
 
 void keyPressed(){
