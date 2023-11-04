@@ -169,5 +169,11 @@ class Summer {
     circle(160, 453, 130);
     rect(155, 418, 200, 100);
     pop();
+    
+    // ATUR POSISI RUMAH
+    push();
+    translate(930,330,8);
+    rumah.display();
+    pop();
   }
 }

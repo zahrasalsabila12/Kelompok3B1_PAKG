@@ -155,6 +155,12 @@ class Spring{
     circle(343, 453, 130);
     circle(160, 453, 130);
     rect(155, 418, 200, 100);
+    
+    // ATUR POSISI RUMAH
+    push();
+    translate(930,420,8);
+    rumah.display();
+    pop();
   }
   
   

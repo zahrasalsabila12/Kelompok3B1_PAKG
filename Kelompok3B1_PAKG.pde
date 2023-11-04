@@ -1,9 +1,9 @@
 PFont font;
 
 Menu menu = new Menu();
-Summer Summer = new Summer();
+Summer summer = new Summer();
 Spring spring = new Spring();
-
+Rumah rumah = new Rumah();
 
 void setup (){
   size(1280, 720, P3D);
@@ -16,8 +16,8 @@ void setup (){
 }
 
 void draw(){
-  Summer.display();
-  //spring.display();
+  //summer.display();
+  spring.display();
 }
 
 void keyPressed(){
