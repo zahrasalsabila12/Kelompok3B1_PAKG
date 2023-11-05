@@ -182,6 +182,12 @@ class Winter {
     rect(165, 455, 15, 200);
     fill(#582f0e);
     rect(175, 455, 5, 200);
+    
+    // ATUR POSISI RUMAH
+    push();
+    translate(930,420,8);
+    rumah.display();
+    pop();
 
     //menampilkan posisi koordinat
     fill(255);
