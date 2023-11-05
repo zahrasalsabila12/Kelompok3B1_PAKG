@@ -196,11 +196,18 @@ class Winter {
 
     //control perpindahan page
     if (key == 'm' || key == 'M') {
-      spring.display();
+      audioSummer.pause();
+      audioSummer.play();
+      audioFall.pause();
+      summer.display();
     } else if (key == 'f' || key == 'F') {
+      audioSummer.pause();
+      audioFall.pause();
+      audioFall.play();
+      audioWinter.pause();
       fall.display();
     } else if (key == 's' || key == 'S') {
-      winter.display();
+      spring.display();
     } else if (keyCode == BACKSPACE) {
       SeasonControl.currentSeason = 0;
       SeasonControl.isFirstTimePlayed = true;
