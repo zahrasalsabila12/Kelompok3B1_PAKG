@@ -1,4 +1,10 @@
+import processing.sound.*;
+
 PFont font;
+
+//Audio
+SoundFile audioMenuClick;
+SoundFile audioMenuMove;
 
 Menu menu = new Menu();
 Summer summer = new Summer();
@@ -15,6 +21,18 @@ void setup (){
   //inisialisasi font
   font = createFont("./fonts/PlaypenSans-Bold.ttf", 72);
   textFont(font);
+  
+  //inisialisasi audio
+  audioMenuClick = new SoundFile(this, "./Audio/clicked.mp3");
+  audioMenuMove = new SoundFile(this, "./Audio/clicked.mp3");
+  
+  //audio volume
+  audioMenuClick.amp(0.5);
+  audioMenuMove.amp(0.5);
+  
+  //class audio
+  menu.audioMenuClick = audioMenuClick;
+  menu.audioMenuMove = audioMenuMove;
 }
 
 void draw(){

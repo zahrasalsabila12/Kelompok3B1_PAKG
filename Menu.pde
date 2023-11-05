@@ -2,6 +2,10 @@ Credit credit = new Credit();
 
 class Menu {
   
+  //Audio
+  SoundFile audioMenuClick;
+  SoundFile audioMenuMove;
+  
   // Menu control
   int pilih = 1;
   int season = 0;
@@ -88,7 +92,7 @@ class Menu {
   
   void keyPressed(){
     if (key == 32 && season != 1) {
-      //audioMenuClick.play();
+      audioMenuClick.play();
       if (season == 2) {
         season = 0;
       } else if (pilih == 1) {
@@ -114,7 +118,7 @@ class Menu {
     } else {
       fill(#81672F);
       if (key == CODED && (keyCode == RIGHT || keyCode == LEFT)) {
-      //audioMenuMove.play();
+      audioMenuMove.play();
       }
     }
     }
@@ -149,4 +153,6 @@ class Menu {
       textSize(20);
       text("~ VERANDERING VAN SEISOENE ~", 458, 535);
   }
+  
+  
 }

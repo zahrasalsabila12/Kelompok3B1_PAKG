@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 class Winter {
   
   void display(){
@@ -20,6 +20,3 @@ class Winter {
    
   }
 }
-=======
-a
->>>>>>> d5aaa59b666da82dacded88351d5419e15cdbeb5
