@@ -242,8 +242,16 @@ class Fall{
     if (key == 's' || key == 'S'){
      spring.display();
    }else if(key == 'm' || key == 'M'){
-     fall.display();
+      audioSummer.pause();
+      audioSummer.play();
+      audioFall.pause();
+      audioWinter.pause();
+     summer.display();
    }else if(key == 'w' || key == 'W'){
+     audioSummer.pause();
+      audioFall.pause();
+      audioWinter.pause();
+      audioWinter.play();
      winter.display();
    } else if (keyCode == BACKSPACE){
      SeasonControl.currentSeason = 0;
