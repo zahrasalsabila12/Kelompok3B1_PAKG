@@ -1,10 +1,9 @@
-
 PFont font;
 
-//Menu menu = new Menu();
-//Summer Summer = new Summer();
-//Spring spring = new Spring();
-
+Menu menu = new Menu();
+Summer summer = new Summer();
+Spring spring = new Spring();
+Rumah rumah = new Rumah();
 
 void setup (){
   size(1280, 720, P3D);
@@ -17,9 +16,12 @@ void setup (){
 }
 
 void draw(){
-  //Summer.display();
+  menu.start();
 }
 
 void keyPressed(){
-  
+  // Menu screen control
+  if (SeasonControl.currentSeason == 0) {
+    menu.keyPressed();
+  }
 }
