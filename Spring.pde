@@ -2,6 +2,7 @@ class Spring{
   
   float x;
   float size = 100;
+  vhgugug
   
   void display(){
     background(#D4F4FC);
@@ -156,6 +157,4 @@ class Spring{
     circle(160, 453, 130);
     rect(155, 418, 200, 100);
   }
-  
-  
 }
