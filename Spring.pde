@@ -160,9 +160,15 @@ class Spring{
     push();
     translate(930,420,8);
     rumah.display();
+<<<<<<< HEAD
     pop();
     
     //audioMenuClick.play()
+=======
+    pop();   
+    //audioMenuClick.play();
+
+>>>>>>> bee47f2ee8b9b30b953d6ccc5ba7715e5be68418
    if (key == 'm' || key == 'M'){
      audioSummer.pause();
       audioSummer.play();
