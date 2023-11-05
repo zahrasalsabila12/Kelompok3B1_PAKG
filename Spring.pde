@@ -162,5 +162,19 @@ class Spring{
     translate(930,420,8);
     rumah.display();
     pop();
+    
+   if (key == 'm' || key == 'M'){
+     summer.display();
+   }else if(key == 'f' || key == 'F'){
+     fall.display();
+   }else if(key == 'w' || key == 'W'){
+     winter.display();
+   }else if (keyCode == BACKSPACE){
+     SeasonControl.currentSeason = 0;
+     SeasonControl.isFirstTimePlayed = true;
+     menu.pilih = 1;
+     menu.season = 0;
+   } else {}
+   
+ }
   }
-}

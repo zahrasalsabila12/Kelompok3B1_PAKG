@@ -3,6 +3,8 @@ PFont font;
 Menu menu = new Menu();
 Summer summer = new Summer();
 Spring spring = new Spring();
+Winter winter = new Winter();
+Fall fall = new Fall();
 Rumah rumah = new Rumah();
 
 void setup (){
