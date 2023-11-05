@@ -6,7 +6,6 @@ class Spring{
   
   void display(){
     background(#D4F4FC);
-    
     //awan
     pushMatrix();
     x = x + 0.2;
@@ -163,6 +162,7 @@ class Spring{
     rumah.display();
     pop();
     
+    //audioMenuClick.play();
    if (key == 'm' || key == 'M'){
      summer.display();
    }else if(key == 'f' || key == 'F'){
@@ -177,4 +177,6 @@ class Spring{
    } else {}
    
  }
+ 
+ 
   }

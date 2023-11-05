@@ -24,7 +24,7 @@ void setup (){
   
   //inisialisasi audio
   audioMenuClick = new SoundFile(this, "./Audio/clicked.mp3");
-  audioMenuMove = new SoundFile(this, "./Audio/clicked.mp3");
+  audioMenuMove = new SoundFile(this, "./Audio/menuchange.mp3");
   
   //audio volume
   audioMenuClick.amp(0.5);

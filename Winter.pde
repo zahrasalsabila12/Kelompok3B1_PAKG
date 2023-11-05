@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> e6ed456f4288136409cd67ae6e66fdd0a0fab585
 class Winter {
 
   void display() {
