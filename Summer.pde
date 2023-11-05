@@ -1,7 +1,9 @@
 class Summer {
-  int xAwan1 = 102; // Koordinat X awan 1
-  int xAwan2 = 702; // Koordinat X awan 2
-  int xAwan3 = 1302; // Koordinat X awan 3
+  int xAwan1 = -300; // Koordinat X awan 1
+  int xAwan2 = 352; // Koordinat X awan 2
+  int xAwan3 = 1002; // Koordinat X awan 3
+  int xCahaya = 710; // Koordinat X Arah Cahaya Matahari
+  int yCahaya = 430; // Koordinat Y Arah Cahaya Matahari
   
   void display() {
     background(#D4F4FC);
@@ -10,6 +12,35 @@ class Summer {
     textSize(20);
     fill(0);
     text("x: "+mouseX+" y: "+mouseY, 200, 200);
+    
+    // Buat Matahari
+    push();
+    noStroke();
+    translate(0,0 -5); // Posisi Matahari
+    noStroke();
+    fill(255, 255, 0); // Warna Matahari
+    circle(1178, 77,100); // Matahari berbentuk lingkaran
+    pop();
+    
+    // Buat Cahaya Matahari
+    float dirY = (yCahaya / float(height) - 0.5) * 2; // Buat Koordinat Y Arah Cahaya
+    float dirX = (xCahaya / float(width) - 0.5) * 2; // Buat Koordinat X Arah Cahaya
+    directionalLight(255, 255, 255, -dirX, -dirY, -1); // Cahaya Matahari nya menggunakan Directional Light
+    if (xAwan1 > 1088 && xAwan1 < 1220){ // Jika awan 1 menutupi matahari maka cahaya nya akan meredup
+      yCahaya+= 2; // Buat meredupkan cahaya
+    } else if (xAwan1 > 1400 && xAwan1 < 1532){ // Jika awan 1 mulai pergi dari matahari maka cahaya nya akan menerang kembali
+      yCahaya-= 2; // Buat menerangkan cahaya
+    }
+    if (xAwan2 > 1088 && xAwan2 < 1220){ // Jika awan 2 menutupi matahari maka cahaya nya akan meredup
+      yCahaya+= 2; // Buat meredupkan cahaya
+    } else if (xAwan2 > 1400 && xAwan2 < 1532){ // Jika awan 2 mulai pergi dari matahari maka cahaya nya akan menerang kembali
+      yCahaya-= 2; // Buat menerangkan cahaya
+    }
+    if (xAwan3 > 1088 && xAwan3 < 1220){ // Jika awan 3 menutupi matahari maka cahaya nya akan meredup
+      yCahaya+= 2; // Buat meredupkan cahaya
+    } else if (xAwan3 > 1400 && xAwan3 < 1532){ // Jika awan 3 mulai pergi dari matahari maka cahaya nya akan menerang kembali
+      yCahaya-= 2; // Buat menerangkan cahaya
+    }
   
     // Buat 3 Awan Putih
     push(); // Sebagai batas awal objek yang akan di gerakkan atau diperbesar
