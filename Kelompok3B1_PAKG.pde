@@ -27,14 +27,11 @@ void setup (){
   
   //inisialisasi audio
   audioMenuClick = new SoundFile(this, "./Audio/clicked.mp3");
-<<<<<<< HEAD
   audioMenuMove = new SoundFile(this, "./Audio/menuchange.mp3");
-=======
   audioMenuMove = new SoundFile(this, "./Audio/clicked.mp3");
   audioWinter = new SoundFile(this, "./audio/winter.wav"); // Buat class suara winter
   audioSummer = new SoundFile(this, "./audio/summer.wav"); // Buat class suara summer
   audioFall = new SoundFile(this, "./audio/fall.wav"); // Buat class suara fall
->>>>>>> d81b34463e8766c7d729c8d815eae6ca11255cb8
   
   //audio volume
   audioMenuClick.amp(0.5);

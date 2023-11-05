@@ -1,10 +1,22 @@
 class Winter {
   float cloudX; // Inisialisasi posisi awan
-  float speed = 0.8; // Kecepatan pergerakan awan
+  float CloudSpeed = 0.8; // Kecepatan pergerakan awan
+  //inisialisasi jumlah salju
+  int numSnowflakes = 50;
+  float[] x = new float[numSnowflakes];
+  float[] y = new float[numSnowflakes];
+  //inisialisasi kecepatan salju turun
+  float[] speed = new float[numSnowflakes];
 
   void display() {
     smooth(2);
     noStroke();
+    //mengatur titik dan kecepatan salju
+    for (int i = 0; i < numSnowflakes; i++) {
+      x[i] = random(width);
+      y[i] = random(height);
+      speed[i] = random(1, 3);
+    }
 
     //backgound
     background(#8e94f2);
@@ -22,7 +34,7 @@ class Winter {
     rect(0, 600, width, 120);
 
     // Pergerakan awan
-    cloudX += speed;
+    cloudX += CloudSpeed;
 
     // Jika awan mencapai batas kanan kanvas, reset posisinya ke luar kanvas sebelah kiri
     if (cloudX > width) {
@@ -126,7 +138,7 @@ class Winter {
     curveVertex(594, 627);
     curveVertex(361, 704);
     vertex(361, 704);
-    vertex(1280, 704);
+    vertex(1280, 720);
     vertex(1280, 551);
     endShape();
 
@@ -138,7 +150,7 @@ class Winter {
     curveVertex(594, 627);
     curveVertex(361, 704);
     vertex(361, 704);
-    vertex(1280, 704);
+    vertex(1280, 720);
     vertex(1280, 590);
     endShape();
 
@@ -150,12 +162,11 @@ class Winter {
     curveVertex(594, 627);
     curveVertex(361, 704);
     vertex(361, 704);
-    vertex(1280, 704);
+    vertex(1280, 720);
     vertex(1280, 676);
     endShape();
-    //image(img, 10, -50);
 
-    fill(#c7f9cc);
+    fill(#ccdbfd);
     beginShape();
     curveVertex(0, 601);
     curveVertex(0, 601);
@@ -167,7 +178,6 @@ class Winter {
     vertex(0, 720);
     vertex(0, 601);
     endShape();
-
 
     //ranting pohon
     fill(#7f4f24);
@@ -182,12 +192,28 @@ class Winter {
     rect(165, 455, 15, 200);
     fill(#582f0e);
     rect(175, 455, 5, 200);
-    
+
     // ATUR POSISI RUMAH
     push();
-    translate(930,420,8);
+    translate(930, 420, 8);
     rumah.display();
     pop();
+
+    //menampilkan saju
+    for (int i = 0; i < numSnowflakes; i++) {
+      // Membuat efek turun salju
+      y[i] += speed[i];
+
+      // Reset posisi jika melewati batas bawah layar
+      if (y[i] > height) {
+        y[i] = 0;
+        x[i] = random(width);
+      }
+
+      // Gambar snowflake
+      fill(255);
+      ellipse(x[i], y[i], 10, 10);
+    }
 
     //menampilkan posisi koordinat
     fill(255);
