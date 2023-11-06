@@ -160,39 +160,10 @@ class Spring{
     push();
     translate(930,420,8);
     rumah.display();
-<<<<<<< HEAD
     pop();
     
     //audioMenuClick.play()
-=======
-    pop();   
     //audioMenuClick.play();
-
->>>>>>> bee47f2ee8b9b30b953d6ccc5ba7715e5be68418
-   if (key == 'm' || key == 'M'){
-     audioSummer.pause();
-      audioSummer.play();
-      audioFall.pause();
-      audioWinter.pause();
-     summer.display();
-   }else if(key == 'f' || key == 'F'){
-     audioSummer.pause();
-      audioFall.pause();
-      audioFall.play();
-      audioWinter.pause();
-     fall.display();
-   }else if(key == 'w' || key == 'W'){
-     audioSummer.pause();
-      audioFall.pause();
-      audioWinter.pause();
-      audioWinter.play();
-     winter.display();
-   }else if (keyCode == BACKSPACE){
-     SeasonControl.currentSeason = 0;
-     SeasonControl.isFirstTimePlayed = true;
-     menu.pilih = 1;
-     menu.season = 0;
-   } else {}
    
  }
  

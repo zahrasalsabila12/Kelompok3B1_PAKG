@@ -219,27 +219,6 @@ class Winter {
     fill(255);
     textSize(25);
     text("X: "+mouseX+" Y: "+mouseY, 10, 35);
-
-    //control perpindahan page
-    if (key == 'm' || key == 'M') {
-      audioSummer.pause();
-      audioSummer.play();
-      audioFall.pause();
-      summer.display();
-    } else if (key == 'f' || key == 'F') {
-      audioSummer.pause();
-      audioFall.pause();
-      audioFall.play();
-      audioWinter.pause();
-      fall.display();
-    } else if (key == 's' || key == 'S') {
-      spring.display();
-    } else if (keyCode == BACKSPACE) {
-      SeasonControl.currentSeason = 0;
-      SeasonControl.isFirstTimePlayed = true;
-      menu.pilih = 1;
-      menu.season = 0;
-    }
   }
   void cloud(float x, float y) {
     //awan

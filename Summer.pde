@@ -206,26 +206,5 @@ class Summer {
     translate(930,330,8);
     rumah.display();
     pop();
-    
-    //control perpindahan page
-    if (key == 's' || key == 'S'){
-     spring.display();
-   }else if(key == 'f' || key == 'F'){
-     audioSummer.pause();
-      audioFall.pause();
-      audioFall.play();
-     fall.display();
-   }else if(key == 'w' || key == 'W'){
-     audioSummer.pause();
-      audioFall.pause();
-      audioWinter.pause();
-      audioWinter.play();
-     winter.display();
-   }else if (keyCode == BACKSPACE){
-     SeasonControl.currentSeason = 0;
-     SeasonControl.isFirstTimePlayed = true;
-     menu.pilih = 1;
-     menu.season = 0;
-   } 
   }
 }
