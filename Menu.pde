@@ -1,4 +1,5 @@
  //Credit credit = new Credit();
+float d=0;
 
 class Menu {
 
@@ -137,15 +138,48 @@ class Menu {
     vertex(633, 500);
     endShape();
 
-    //pohon 3 dimensi
-    fill(#519548);
-    triangle(563, 408, 640, 460, 640, 30);
-    fill(#3B7E33);
-    triangle(640, 460, 708, 408, 640, 30);
-
     //judul
     fill(#2F4D25);
     textSize(20);
     text("~ VERANDERING VAN SEISOENE ~", 458, 535);
+    
+    pushMatrix();{
+    translate(width/2,0,0);
+    rotateY(d * 0.05);
+    d+=0.3;
+    noStroke();
+    fill(#519548);
+    //depan
+    beginShape();
+    vertex(0,100,0);
+    vertex(70,432,70);
+    vertex(-70,432,70);
+    vertex(0,100,0);
+    endShape();
+    //kanan
+    fill(#519548);
+    beginShape();
+    vertex(0,100,0);
+    vertex(70,432,70);
+    vertex(70,432,-70);
+    vertex(0,100,0);
+    endShape();
+    //belakang
+    fill(#519548);
+    beginShape();
+    vertex(0,100,0);
+    vertex(70,432,-70);
+    vertex(-70,432,-70);
+    vertex(0,100,0);
+    endShape();
+    //kiri
+    fill(#519548);
+    beginShape();
+    vertex(0,100,0);
+    vertex(-70,432,70);
+    vertex(-70,432,-70);
+    vertex(0,100,0);
+    endShape();
+} popMatrix();
   }
 }
