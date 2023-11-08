@@ -1,6 +1,6 @@
 class Winter {
   float cloudX; // Inisialisasi posisi awan
-  float CloudSpeed = 0.8; // Kecepatan pergerakan awan
+  float CloudSpeed = 0.2; // Kecepatan pergerakan awan
   //inisialisasi jumlah salju
   int numSnowflakes = 50;
   float[] x = new float[numSnowflakes];

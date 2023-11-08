@@ -1,27 +1,13 @@
- //Credit credit = new Credit();
-float d=0;
 
 class Menu {
-
-  ////Audio
-  //SoundFile audioMenuClick;
-  //SoundFile audioMenuMove;
-
-  //// Menu control
-  //int pilih = 1;
-  //int season = 0;
-  //int putar = 1;
-
-
-  //Loading loading = new Loading();
-  //boolean isLoading = false;
+  
+float d=0;
 
   void start() {
     pushMatrix();
     {
       background(#FFFDF0);
       displayPohon();
-      //translate(-130, -20);
       if (pilih ==1) {
         //lingkaran play
         noStroke();
@@ -86,39 +72,6 @@ class Menu {
     popMatrix();
   }
 
-  //void keyPressed() {
-  //  if (key == 32 && season != 1) {
-  //    audioMenuClick.play();
-  //    if (season == 2) {
-  //      season = 0;
-  //    } else if (pilih == 1) {
-  //      season = 1;
-  //    } else if (pilih == 2) {
-  //      season = 2;
-  //    } else if (pilih == 3) {
-  //      season = 3;
-  //    }
-  //  }
-
-  //  if (season != 0) {
-  //    return;
-  //  }
-
-  //  if (key==CODED)
-  //  {
-      //if (keyCode==RIGHT) {
-      //  pilih-=1;
-      //} else if (keyCode==LEFT) {
-      //  pilih+=1;
-      //}
-  //  } else {
-  //    fill(#81672F);
-  //    if (key == CODED && (keyCode == RIGHT || keyCode == LEFT)) {
-  //      audioMenuMove.play();
-  //    }
-  //  }
-  //}
-
   void displayPohon() {
     //bayangan pohon
     fill(#D6D8D6, 70);
@@ -143,7 +96,8 @@ class Menu {
     textSize(20);
     text("~ VERANDERING VAN SEISOENE ~", 458, 535);
     
-    pushMatrix();{
+  //3d 
+  pushMatrix();{
     translate(width/2,0,0);
     rotateY(d * 0.05);
     d+=0.3;
@@ -180,6 +134,7 @@ class Menu {
     vertex(-70,432,-70);
     vertex(0,100,0);
     endShape();
-} popMatrix();
+  } 
+  popMatrix();
   }
 }
