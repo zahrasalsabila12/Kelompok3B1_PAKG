@@ -30,10 +30,23 @@ boolean isFirstTimePlayed = true;
 boolean creditShow = true;
 boolean informationShow = true;
 
+// Buat Daun Gugur Berjatuhan
+int jumlahDaunGugur = 50;
+float[] x = new float[jumlahDaunGugur];
+float[] y = new float[jumlahDaunGugur];
+//inisialisasi kecepatan Daun Gugur
+float[] speed = new float[jumlahDaunGugur];
+
 void setup() {
   size(1280, 720, P3D);
   smooth();
   textMode(SHAPE);
+  //mengatur lokasi dan kecepatan Daun Gugur
+  for (int i = 0; i < jumlahDaunGugur; i++) {
+    x[i] = random(width);
+    y[i] = random(height);
+    speed[i] = random(1,5);
+  }
 
   //inisialisasi font
   font = createFont("./fonts/PlaypenSans-Bold.ttf", 72);

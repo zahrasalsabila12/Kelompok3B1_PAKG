@@ -1,11 +1,34 @@
 class Fall{
   float cloudX; // Inisialisasi posisi awan
   float CloudSpeed = 0.2; // Kecepatan pergerakan awan
+  //inisialisasi jumlah salju
   
   void display(){
-  background(#bef7e4);
+    smooth(2);
+    noStroke();
     
-  // Pergerakan awan
+    background(#bef7e4);
+    
+    //menampilkan daun gugur
+    for (int i = 0; i < jumlahDaunGugur; i++) {
+      // Membuat efek turun salju
+      y[i] += speed[i];
+
+      // Reset posisi jika melewati batas bawah layar
+      if (y[i] > height) {
+        y[i] = 0;
+        x[i] = random(width);
+      }
+
+      // Gambar Daun Gugur
+      fill(#ddc201);
+      push();
+      translate(0,0,8);
+      ellipse(x[i], y[i], 20, 5);
+      pop();
+    }
+
+    // Pergerakan awan
     cloudX += CloudSpeed;
 
     // Jika awan mencapai batas kanan kanvas, reset posisinya ke luar kanvas sebelah kiri
