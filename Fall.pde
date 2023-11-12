@@ -11,7 +11,7 @@ class Fall{
     
     //menampilkan daun gugur
     for (int i = 0; i < jumlahDaunGugur; i++) {
-      // Membuat efek turun salju
+      // Membuat efek turun daun gugur
       y[i] += speed[i];
 
       // Reset posisi jika melewati batas bawah layar

@@ -4,49 +4,86 @@ class Summer {
   int xAwan3 = 1002; // Koordinat X awan 3
   int xCahaya = 710; // Koordinat X Arah Cahaya Matahari
   int yCahaya = 430; // Koordinat Y Arah Cahaya Matahari
-  
+  int warnaAwan;
+
   void display() {
-    background(#D4F4FC);
-    
-    // Buat kasih keterangan posisi mouse
-    textSize(20);
-    fill(0);
-    text("x: "+mouseX+" y: "+mouseY, 200, 200);
-    
-    // Buat Matahari
-    push();
-    noStroke();
-    translate(0,0 -5); // Posisi Matahari
-    noStroke();
-    fill(255, 255, 0); // Warna Matahari
-    circle(1178, 77,100); // Matahari berbentuk lingkaran
-    pop();
-    
-    // Buat Cahaya Matahari
-    float dirY = (yCahaya / float(height) - 0.5) * 2; // Buat Koordinat Y Arah Cahaya
-    float dirX = (xCahaya / float(width) - 0.5) * 2; // Buat Koordinat X Arah Cahaya
-    directionalLight(255, 255, 255, -dirX, -dirY, -1); // Cahaya Matahari nya menggunakan Directional Light
-    if (xAwan1 > 1088 && xAwan1 < 1220){ // Jika awan 1 menutupi matahari maka cahaya nya akan meredup
-      yCahaya+= 2; // Buat meredupkan cahaya
-    } else if (xAwan1 > 1400 && xAwan1 < 1532){ // Jika awan 1 mulai pergi dari matahari maka cahaya nya akan menerang kembali
-      yCahaya-= 2; // Buat menerangkan cahaya
+    if (isHujan) {
+      audioRain.pause();
+      audioRain.play();
+      if (audioRain.isPlaying()) {
+        audioSummer.pause();
+      }
+      background(#06437a);
+      // Buat Cahaya Matahari
+      float dirY = (yCahaya / float(height) - 0.5) * 2; // Buat Koordinat Y Arah Cahaya
+      float dirX = (xCahaya / float(width) - 0.5) * 2; // Buat Koordinat X Arah Cahaya
+      directionalLight(255, 255, 255, -dirX, -dirY, -1); // Cahaya Matahari nya menggunakan Directional Light
+      yCahaya = 800; // Buat meredupkan cahaya pada objek
+      warnaAwan = 100;
+      //menampilkan Hujan
+      for (int i = 0; i < jumlahHujan; i++) {
+        // Membuat efek turun Hujan
+        yH[i] += speedH[i];
+
+        // Reset posisi jika melewati batas bawah layar
+        if (yH[i] > height) {
+          yH[i] = 0;
+          xH[i] = random(width);
+        }
+
+        // Gambar Tetesan Hujan
+        fill(#269dc7);
+        push();
+        translate(0, 0, 15);
+        ellipse(xH[i], yH[i], 5, 50);
+        pop();
+      }
+    } else {
+      audioSummer.pause();
+      audioSummer.play();
+      if (audioSummer.isPlaying()) {
+        audioRain.pause();
+      }
+      if (yCahaya == 800) {
+        yCahaya = 430;
+      }
+      background(#D4F4FC);
+      // Buat Matahari
+      push();
+      noStroke();
+      translate(0, 0 -5); // Posisi Matahari
+      noStroke();
+      fill(255, 255, 0); // Warna Matahari
+      circle(1178, 77, 100); // Matahari berbentuk lingkaran
+      pop();
+
+      // Buat Cahaya Matahari
+      float dirY = (yCahaya / float(height) - 0.5) * 2; // Buat Koordinat Y Arah Cahaya
+      float dirX = (xCahaya / float(width) - 0.5) * 2; // Buat Koordinat X Arah Cahaya
+      directionalLight(255, 255, 255, -dirX, -dirY, -1); // Cahaya Matahari nya menggunakan Directional Light
+      if (xAwan1 > 1088 && xAwan1 < 1220) { // Jika awan 1 menutupi matahari maka cahaya nya akan meredup
+        yCahaya+= 2; // Buat meredupkan cahaya
+      } else if (xAwan1 > 1400 && xAwan1 < 1532) { // Jika awan 1 mulai pergi dari matahari maka cahaya nya akan menerang kembali
+        yCahaya-= 2; // Buat menerangkan cahaya
+      }
+      if (xAwan2 > 1088 && xAwan2 < 1220) { // Jika awan 2 menutupi matahari maka cahaya nya akan meredup
+        yCahaya+= 2; // Buat meredupkan cahaya
+      } else if (xAwan2 > 1400 && xAwan2 < 1532) { // Jika awan 2 mulai pergi dari matahari maka cahaya nya akan menerang kembali
+        yCahaya-= 2; // Buat menerangkan cahaya
+      }
+      if (xAwan3 > 1088 && xAwan3 < 1220) { // Jika awan 3 menutupi matahari maka cahaya nya akan meredup
+        yCahaya+= 2; // Buat meredupkan cahaya
+      } else if (xAwan3 > 1400 && xAwan3 < 1532) { // Jika awan 3 mulai pergi dari matahari maka cahaya nya akan menerang kembali
+        yCahaya-= 2; // Buat menerangkan cahaya
+      }
+      warnaAwan = 255;
     }
-    if (xAwan2 > 1088 && xAwan2 < 1220){ // Jika awan 2 menutupi matahari maka cahaya nya akan meredup
-      yCahaya+= 2; // Buat meredupkan cahaya
-    } else if (xAwan2 > 1400 && xAwan2 < 1532){ // Jika awan 2 mulai pergi dari matahari maka cahaya nya akan menerang kembali
-      yCahaya-= 2; // Buat menerangkan cahaya
-    }
-    if (xAwan3 > 1088 && xAwan3 < 1220){ // Jika awan 3 menutupi matahari maka cahaya nya akan meredup
-      yCahaya+= 2; // Buat meredupkan cahaya
-    } else if (xAwan3 > 1400 && xAwan3 < 1532){ // Jika awan 3 mulai pergi dari matahari maka cahaya nya akan menerang kembali
-      yCahaya-= 2; // Buat menerangkan cahaya
-    }
-  
+
     // Buat 3 Awan Putih
     push(); // Sebagai batas awal objek yang akan di gerakkan atau diperbesar
     scale(0.8); // Untuk Memperbesar Ukuran Awan
     // Buat Awan Warna Putih 1
-    fill(255); // mengubah warna awan menjadi putih
+    fill(warnaAwan); // mengubah warna awan menjadi putih
     noStroke();
     beginShape();
     vertex(xAwan1 + 10, 100); // Titik awal awan
@@ -64,7 +101,7 @@ class Summer {
     if (xAwan1 > width + width*0.4 ) {
       xAwan1 = -400;
     }
-  
+
     // Buat Awan Warna Putih 2
     beginShape();
     vertex(xAwan2 + 10, 100); // Titik awal awan
@@ -82,7 +119,7 @@ class Summer {
     if (xAwan2 > width + width*0.4 ) {
       xAwan2 = -400;
     }
-  
+
     // Buat Awan Warna Putih 3
     beginShape();
     vertex(xAwan3 + 10, 100); // Titik awal awan
@@ -101,11 +138,11 @@ class Summer {
       xAwan3 = -400;
     }
     pop(); // Sebagai batas akhir objek yang akan di gerakkan atau diperbesar
-    
+
     // BUAT GUNUNG KIRI
     push();
     beginShape();
-    translate(0,0,5);
+    translate(0, 0, 5);
     noStroke();
     fill(#A2B6E5);
     curveVertex(0, 143);
@@ -123,13 +160,13 @@ class Summer {
     curveVertex(-5, 800);
     curveVertex(-5, 143);
     curveVertex(-5, 143);
-    endShape();  
+    endShape();
     pop();
-    
+
     // BUAT GUNUNG KANAN
     push();
     beginShape();
-    translate(0,0,4);
+    translate(0, 0, 4);
     noStroke();
     fill(#A2B6E5);
     curveVertex(758, 487);
@@ -144,13 +181,13 @@ class Summer {
     curveVertex(671, 734);
     curveVertex(758, 487);
     curveVertex(758, 487);
-    endShape();  
+    endShape();
     pop();
-    
+
     // BUAT TANAH KIRI
     push();
     beginShape();
-    translate(0,0,7);
+    translate(0, 0, 7);
     noStroke();
     fill(#71D163);
     curveVertex(0, 433);
@@ -161,13 +198,13 @@ class Summer {
     curveVertex(-5, 800);
     curveVertex(-5, 433);
     curveVertex(-5, 433);
-    endShape();  
+    endShape();
     pop();
-    
+
     // BUAT TANAH KANAN
     push();
     beginShape();
-    translate(0,0,6);
+    translate(0, 0, 6);
     noStroke();
     fill(#54AF47);
     curveVertex(600, 557);
@@ -180,10 +217,10 @@ class Summer {
     curveVertex(600, 557);
     endShape();
     pop();
-    
+
     // BUAT POHON
     push();
-    translate(0,0,8);
+    translate(0, -10, 8);
     fill(#835C1C);
     noStroke();
     quad(295, 463, 315, 463, 315, 715, 295, 715);
@@ -200,10 +237,10 @@ class Summer {
     circle(160, 453, 130);
     rect(155, 418, 200, 100);
     pop();
-    
+
     // ATUR POSISI RUMAH
     push();
-    translate(930,330,8);
+    translate(930, 330, 8);
     rumah.display();
     pop();
   }

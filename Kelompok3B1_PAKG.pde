@@ -11,6 +11,7 @@ SoundFile audioSummer;
 SoundFile audioFall;
 SoundFile audioSpring;
 SoundFile audioMenu;
+SoundFile audioRain;
 
 Menu menu = new Menu();
 Summer summer = new Summer();
@@ -30,13 +31,22 @@ boolean isFirstTimePlayed = true;
 boolean creditShow = true;
 boolean informationShow = true;
 
-// Buat Daun Gugur Berjatuhan
+// Buat Jumlah Daun Gugur Berjatuhan
 int jumlahDaunGugur = 50;
 float[] x = new float[jumlahDaunGugur];
 float[] y = new float[jumlahDaunGugur];
 //inisialisasi kecepatan Daun Gugur
 float[] speed = new float[jumlahDaunGugur];
 
+// Buat Jumlah Hujan
+int jumlahHujan = 50;
+float[] xH = new float[jumlahHujan];
+float[] yH = new float[jumlahHujan];
+//inisialisasi kecepatan Daun Gugur
+float[] speedH = new float[jumlahHujan];
+
+boolean isHujan = false;
+  
 void setup() {
   size(1280, 720, P3D);
   smooth();
@@ -47,6 +57,12 @@ void setup() {
     y[i] = random(height);
     speed[i] = random(1,5);
   }
+  //mengatur lokasi dan kecepatan Daun Gugur
+  for (int i = 0; i < jumlahHujan; i++) {
+    xH[i] = random(width);
+    yH[i] = random(height);
+    speedH[i] = random(15,20);
+  }
 
   //inisialisasi font
   font = createFont("./fonts/PlaypenSans-Bold.ttf", 72);
@@ -54,16 +70,18 @@ void setup() {
 
   //inisialisasi audio
   audioMenuClick = new SoundFile(this, "./Audio/clicked.mp3");
-  audioMenuMove = new SoundFile(this, "./Audio/menuchange.mp3");
   audioMenuMove = new SoundFile(this, "./Audio/clicked.mp3");
   audioWinter = new SoundFile(this, "./audio/winter.wav"); // Buat class suara winter
   audioSummer = new SoundFile(this, "./audio/summer.wav"); // Buat class suara summer
   audioFall = new SoundFile(this, "./audio/fall.wav"); // Buat class suara fall
   audioSpring = new SoundFile(this, "./audio/spring.wav"); // Buat class suara spring
   audioMenu = new SoundFile(this, "./audio/menu.mp3");
+  audioRain = new SoundFile(this, "./audio/rain.mp3"); // Buat class suara spring
   //audio volume
-  audioMenuClick.amp(0.5);
-  audioMenuMove.amp(0.5);
+  audioWinter.amp(0.5);
+  audioSummer.amp(0.5);
+  audioFall.amp(0.5);
+  audioSpring.amp(0.5);
 
   img = loadImage("image/information.jpg");
   img.resize(1280, 720);
@@ -87,6 +105,7 @@ void keyReleased() {
       season = 5;
     }
     if (key == 32 && pilih == 2) {
+      audioMenuClick.play();
       isFirstTimePlayed = false;
       season = 6;
     }
@@ -95,6 +114,7 @@ void keyReleased() {
     }
   } else if (creditShow) {
     if (keyCode == BACKSPACE) {
+      audioMenuClick.play();
       isFirstTimePlayed = true;
       season = 0;
     }
@@ -118,6 +138,7 @@ void keyReleased() {
     } else if (key == 'w' || key == 'W') {
       season = 4;
     } else if (keyCode == BACKSPACE) {
+      audioMenuClick.play();
       audioMenu.play();
       audioSummer.pause();
       audioFall.pause();
@@ -136,6 +157,11 @@ void draw() {
   if (season == 0) {
     audioMenu.pause();
     audioMenu.play();
+    //if (!audioMenu.isPlaying()) {
+    //// Jika selesai, putar lagi dari awal
+    //  audioMenu.cue(0);
+    //  audioMenu.play();
+  //}
     menu.start();
   } else if (season == 1) {
     audioSpring.pause();
@@ -146,8 +172,6 @@ void draw() {
     spring.display();
   } else if (season == 2) {
     audioSpring.pause();
-    audioSummer.pause();
-    audioSummer.play();
     audioFall.pause();
     audioWinter.pause();
     summer.display();
@@ -172,4 +196,9 @@ void draw() {
   } else if (season == 7) {
     exit();
   }
+}
+
+void mouseClicked(){
+  audioMenuClick.play();
+  isHujan = !isHujan;
 }

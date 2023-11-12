@@ -214,11 +214,7 @@ class Winter {
       fill(255);
       ellipse(x[i], y[i], 10, 10);
     }
-
-    //menampilkan posisi koordinat
-    fill(255);
-    textSize(25);
-    text("X: "+mouseX+" Y: "+mouseY, 10, 35);
+    
   }
   void cloud(float x, float y) {
     //awan
