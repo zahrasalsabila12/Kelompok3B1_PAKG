@@ -138,6 +138,7 @@ void keyReleased() {
     } else if (key == 'w' || key == 'W') {
       season = 4;
     } else if (keyCode == BACKSPACE) {
+      audioRain.pause();
       audioMenuClick.play();
       audioMenu.play();
       audioSummer.pause();
@@ -164,6 +165,7 @@ void draw() {
   //}
     menu.start();
   } else if (season == 1) {
+    audioRain.pause();
     audioSpring.pause();
     audioSpring.play();
     audioSummer.pause();
@@ -171,11 +173,13 @@ void draw() {
     audioWinter.pause();
     spring.display();
   } else if (season == 2) {
+    audioRain.pause();
     audioSpring.pause();
     audioFall.pause();
     audioWinter.pause();
     summer.display();
   } else if (season == 3) {
+    audioRain.pause();
     audioSpring.pause();
     audioSummer.pause();
     audioFall.pause();
@@ -183,6 +187,7 @@ void draw() {
     audioWinter.pause();
     fall.display();
   } else if (season == 4) {
+    audioRain.pause();
     audioSpring.pause();
     audioSummer.pause();
     audioFall.pause();
